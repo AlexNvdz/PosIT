@@ -5,61 +5,95 @@ import logo from '../assets/images/logo.png';
 import Svg, { Path } from 'react-native-svg';
 import "@/global.css";
 
-export default function LoginScreen() {
+export default function RegisterScreen() {
   const router = useRouter();
+  const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const isWeb = Platform.OS === 'web';
 
   const handleRegister = () => {
-    router.push('register');
+    if (!fullName || !username || !email || !password || !confirmPassword) {
+      return Alert.alert("Error", "Completa todos los campos");
+    }
+
+    if (password !== confirmPassword) {
+      return Alert.alert("Error", "Las contraseñas no coinciden");
+    }
+
+    Alert.alert("Registro exitoso", "Ahora puedes iniciar sesión");
+    router.replace('/');
   };
 
-  const handleForgotPassword = () => {
-    Alert.alert("Recuperación", "Funcionalidad en desarrollo");
+  const handleBackToLogin = () => {
+    router.push('/');
   };
 
   const FormContent = () => (
-    <View className="w-full">
+    <>
       <Image
         source={logo}
         className="w-40 h-40 max-w-[160px] max-h-[160px] rounded-full mb-10 self-center"
         resizeMode="contain"
       />
       <TextInput
-        className="w-full p-4 border border-gray-300 rounded-xl mb-5 bg-white text-base"
-        placeholder="Usuario"
+        className="w-full p-4 border border-gray-300 rounded-xl mb-4 bg-white text-base"
+        placeholder="Nombre completo"
+        value={fullName}
+        onChangeText={setFullName}
+      />
+
+      <TextInput
+        className="w-full p-4 border border-gray-300 rounded-xl mb-4 bg-white text-base"
+        placeholder="Nombre de usuario"
         value={username}
         onChangeText={setUsername}
       />
+
       <TextInput
-        className="w-full p-4 border border-gray-300 rounded-xl mb-5 bg-white text-base"
+        className="w-full p-4 border border-gray-300 rounded-xl mb-4 bg-white text-base"
+        placeholder="Correo electrónico"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
+
+      <TextInput
+        className="w-full p-4 border border-gray-300 rounded-xl mb-4 bg-white text-base"
         placeholder="Contraseña"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity className="w-full bg-blue-600 p-4 rounded-xl mb-4">
-        <Text className="text-white text-center font-semibold text-base">Iniciar Sesión</Text>
+
+      <TextInput
+        className="w-full p-4 border border-gray-300 rounded-xl mb-5 bg-white text-base"
+        placeholder="Repetir contraseña"
+        value={confirmPassword}
+        onChangeText={setConfirmPassword}
+        secureTextEntry
+      />
+
+      <TouchableOpacity className="w-full bg-blue-600 p-4 rounded-xl mb-4" onPress={handleRegister}>
+        <Text className="text-white text-center font-semibold text-base">Registrarse</Text>
       </TouchableOpacity>
-  
-      <TouchableOpacity onPress={handleForgotPassword}>
-        <Text className="text-blue-600 text-sm mb-6 text-center">¿Olvidaste tu contraseña?</Text>
-      </TouchableOpacity>
-  
-      <TouchableOpacity onPress={handleRegister}>
+
+      <TouchableOpacity onPress={handleBackToLogin}>
         <Text className="text-gray-600 text-sm text-center">
-          ¿No tienes una cuenta? <Text className="text-blue-600 font-semibold">Regístrate</Text>
+          ¿Ya tienes una cuenta? <Text className="text-blue-600 font-semibold">Inicia sesión</Text>
         </Text>
       </TouchableOpacity>
-    </View>
+    </>
   );
-  
 
   const MobileView = () => (
-    <View className="flex-1 justify-center items-center bg-white px-6">
-      <FormContent />
-    </View>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-white">
+      <View className="flex-1 justify-center items-center px-6 py-10">
+        <FormContent />
+      </View>
+    </ScrollView>
   );
 
   const WebView = () => (
