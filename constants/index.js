@@ -1,0 +1,3 @@
+
+export const supabaseUrl = 'https://fafrseleaknzqhynvoph.supabase.co';
+export const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhZnJzZWxlYWtuenFoeW52b3BoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjY2NzEsImV4cCI6MjA1OTg0MjY3MX0.nDRofWPd6kBYWTNvHFWeHvGnWuTNDVLENDERjGnBDdY';
