@@ -1,37 +1,55 @@
-Follow these steps to successfully run this project.
+Sigue estos pasos para ejecutar correctamente este proyecto.
 
-This project is already using a test supabase project so you can just run the following commands to successfully run the app:
-- npm install
-- npm run start
+Antes que nada tener instalado NodeJs en tu ordenador/pc.
 
-thats it.
+Este proyecto ya está utilizando un proyecto de prueba en Supabase, así que solo necesitas ejecutar los siguientes comandos para correr la app exitosamente:
+
+ - npm install
+
+ - npm run start
+
+¡Eso es todo!
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-But if you want to use your own supabase project then follow the steps below:
+Pero si deseas usar tu propio proyecto de Supabase, sigue los pasos a continuación:
 
-First we need to setup supabase project for our app before we can use it.
+Primero necesitamos configurar un proyecto en Supabase para nuestra aplicación antes de poder utilizarlo.
 
-Project setup:
-- create an account on https://supabase.com.
-- create a new project.
-- copy the contents of schemas.sql file (you can find this file in the root directory of this project)
-- go to SQL Editor in the side bar of you supabase project
-- past the copied content in the editor and click on run button (there will be a green run button at the bottom) 
-- after this you'll be able to see all the tables, relationships, policies, buckets, triggers and functions.
+Configuración del proyecto:
 
-Authentication:
-- go to Authentication in the side bar then go to providers.
-- enable the email provider (if not enabled already)
-- click on the email provider and turn off the 'Confirm email' option and save it
+ - Crea una cuenta en https://supabase.com.
 
-API Keys:
-- go to Project Settings in the sidebar and click on API option in the side bar.
-- copy the Project URL and past it in the constants/index.js file in the supabaseUrl veriable.
-- copy the anon key and past it in the constants/index.js file in the supabaseAnonKey veriable. 
+ - Crea un nuevo proyecto.
 
-supabase setup is finished now you can run the following commands to run the app:
+ - Copia el contenido del archivo schemas.sql (puedes encontrar este archivo en el directorio raíz de este proyecto).
+
+ - Ve al Editor de SQL en la barra lateral de tu proyecto de Supabase.
+
+ - Pega el contenido copiado en el editor y haz clic en el botón Run (habrá un botón verde en la parte inferior).
+
+ - Después de esto, podrás ver todas las tablas, relaciones, políticas, buckets, triggers y funciones.
+
+Autenticación:
+
+ - Ve a la sección Authentication en la barra lateral, luego entra a Providers.
+
+ - Habilita el proveedor de Email (si aún no está habilitado).
+
+ - Haz clic en el proveedor de email y desactiva la opción "Confirm email", luego guarda los cambios.
+
+Llaves de la API:
+
+ - Ve a Project Settings en la barra lateral y haz clic en la opción API.
+
+ - Copia la URL del proyecto y pégala en el archivo constants/index.js en la variable supabaseUrl.
+
+ - Copia la anon key y pégala en el mismo archivo en la variable supabaseAnonKey.
+
+La configuración de Supabase ya está lista. Ahora puedes ejecutar los siguientes comandos para correr la app:
+
 - npm install
-- npm run start
 
-Enjoy 😉
+ -npm run start
+
+¡Disfruta! 😉
