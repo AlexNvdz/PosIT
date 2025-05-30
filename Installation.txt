@@ -53,3 +53,6 @@ La configuración de Supabase ya está lista. Ahora puedes ejecutar los siguient
  -npm run start
 
 ¡Disfruta! 😉
+
+NOTA: Para probar el proyecto se debe descargar en un dispositivo movil, celular Expo GO: https://expo.dev/go?sdkVersion=52&platform=android&device=true
+Justo la version de este URL, Y escanear el QR que arroja este proyecto al ejecutar - npm run start.
